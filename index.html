@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Lucimix 内容运营方案</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: one report column (max 1080px) read top to bottom; tables scroll inside their own boxes; H5 mockups sit in a wrapping row of phone frames */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #15171c;
+  --muted: #646a75;
+  --line: #e2e5ea;
+  --accent: #e8622c;
+  --accent-soft: #fdece4;
+  --smart: #23806c;
+  --smart-soft: #e2f3ef;
+  --free: #4659c4;
+  --free-soft: #e7eafb;
+  --other: #8a8f99;
+  --other-soft: #eef0f3;
+  --ok: #23806c;
+  --warn: #b26200;
+  --warn-soft: #fff3df;
+  --bad: #c03a2b;
+  --sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121418; --paper: #1b1e24; --ink: #eceef2; --muted: #9aa1ad; --line: #2c3039;
+    --accent: #f27a46; --accent-soft: #3a2218; --smart: #4fbba3; --smart-soft: #14302a;
+    --free: #8797f0; --free-soft: #1f2442; --other: #a2a8b3; --other-soft: #262a31;
+    --ok: #4fbba3; --warn: #f0b052; --warn-soft: #3a2b14; --bad: #f07a6c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121418; --paper: #1b1e24; --ink: #eceef2; --muted: #9aa1ad; --line: #2c3039;
+  --accent: #f27a46; --accent-soft: #3a2218; --smart: #4fbba3; --smart-soft: #14302a;
+  --free: #8797f0; --free-soft: #1f2442; --other: #a2a8b3; --other-soft: #262a31;
+  --ok: #4fbba3; --warn: #f0b052; --warn-soft: #3a2b14; --bad: #f07a6c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.75 var(--sans); padding-block: 0 72px; padding-inline: 16px; }
+a { color: var(--accent); }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.page { max-width: 1080px; margin: 0 auto; }
+
+header.top { padding-block: 48px 28px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+.eyebrow { font-size: 13px; letter-spacing: .14em; color: var(--accent); font-weight: 700; }
+h1 { font-size: clamp(30px, 5vw, 44px); font-weight: 900; line-height: 1.25; margin: 10px 0 12px; text-wrap: balance; letter-spacing: -.01em; }
+.lede { color: var(--muted); max-width: 46em; margin: 0; font-size: 16px; }
+nav.toc { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 20px; font-size: 14px; }
+nav.toc a { text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--line); }
+nav.toc a:hover { color: var(--accent); border-color: var(--accent); }
+
+section { padding-block: 40px 8px; }
+h2 { font-size: 24px; font-weight: 900; margin: 0 0 6px; display: flex; gap: 12px; align-items: baseline; text-wrap: balance; }
+h2 .no { font-family: var(--mono); font-size: 14px; color: var(--accent); font-weight: 500; }
+.intro { color: var(--muted); margin: 0 0 20px; max-width: 48em; }
+h3 { font-size: 17px; margin: 28px 0 10px; }
+
+.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+.summary div { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 18px 18px 16px; min-width: 0; }
+.summary b { display: block; font-size: 16px; margin-bottom: 4px; }
+.summary p { margin: 0; color: var(--muted); font-size: 14px; }
+
+.tbl { overflow-x: auto; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; }
+table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 14px; }
+th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12px; letter-spacing: .06em; color: var(--muted); font-weight: 700; background: color-mix(in srgb, var(--bg) 60%, var(--paper)); white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--muted); white-space: nowrap; }
+td.title { font-weight: 500; min-width: 15em; }
+tr.group td { background: color-mix(in srgb, var(--bg) 50%, var(--paper)); font-weight: 700; font-size: 13px; padding-block: 8px; }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 700; padding: 1px 9px; border-radius: 99px; white-space: nowrap; }
+.pill.agg { background: var(--accent-soft); color: var(--accent); }
+.pill.smart { background: var(--smart-soft); color: var(--smart); }
+.pill.free { background: var(--free-soft); color: var(--free); }
+.pill.other { background: var(--other-soft); color: var(--other); }
+.st { font-size: 13px; white-space: nowrap; }
+.st.ok { color: var(--ok); }
+.st.warn { color: var(--warn); }
+.st.todo { color: var(--muted); }
+.st::before { content: "●"; margin-right: 5px; font-size: 10px; vertical-align: 1px; }
+a.read { font-weight: 700; text-decoration: none; white-space: nowrap; }
+a.read:hover { text-decoration: underline; }
+
+.mix { margin: 4px 0 22px; }
+.bar { display: flex; height: 34px; border-radius: 8px; overflow: hidden; font-size: 13px; font-weight: 700; color: #fff; }
+.bar span { display: flex; align-items: center; padding-left: 10px; white-space: nowrap; overflow: hidden; }
+.bar .agg { background: var(--accent); flex: 5; }
+.bar .smart { background: var(--smart); flex: 4; }
+.bar .free { background: var(--free); flex: 2; }
+.bar .task { background: var(--task); flex: 3; }
+.bar .other { background: var(--other); flex: 1; padding-left: 0; justify-content: center; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--muted); margin-top: 8px; }
+
+.goals { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.goal { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 18px; min-width: 0; }
+.goal .k { font-size: 12px; letter-spacing: .08em; color: var(--muted); font-weight: 700; }
+.goal .v { font-size: 30px; font-weight: 900; font-family: var(--sans); line-height: 1.3; margin: 4px 0 2px; font-variant-numeric: tabular-nums; }
+.goal .v small { font-size: 15px; font-weight: 500; color: var(--muted); margin-left: 4px; }
+.goal p { margin: 0; font-size: 13px; color: var(--muted); }
+.note { font-size: 13px; color: var(--muted); margin-top: 12px; }
+
+/* H5 mockups */
+.phones { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 22px; align-items: start; }
+.mock { min-width: 0; }
+.mock h4 { margin: 0 0 4px; font-size: 15px; }
+.mock .for { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
+.phone { width: 100%; max-width: 300px; border: 8px solid #23262d; border-radius: 30px; overflow: hidden; background: #ededed; color: #111; font-size: 13px; line-height: 1.6; margin-inline: auto; }
+.phone .bar-top { background: #f7f7f7; text-align: center; font-weight: 700; padding: 10px 0 8px; font-size: 13px; border-bottom: 1px solid #ddd; }
+.wx { padding: 16px 12px 22px; display: grid; gap: 12px; min-height: 420px; align-content: start; }
+.wx .time { text-align: center; color: #999; font-size: 11px; }
+.wx .row { display: flex; gap: 8px; align-items: flex-start; }
+.wx .av { width: 32px; height: 32px; border-radius: 5px; background: #c7ccd4; flex: none; }
+.wx .msg { background: #fff; border-radius: 6px; padding: 8px 10px; max-width: 210px; }
+.card { background: #fff; border-radius: 6px; padding: 10px 12px; width: 218px; }
+.card .t { font-weight: 700; font-size: 13px; line-height: 1.45; margin-bottom: 6px; }
+.card .d { display: flex; gap: 8px; color: #888; font-size: 12px; line-height: 1.45; }
+.card .thumb { width: 42px; height: 42px; border-radius: 4px; flex: none; display: grid; place-items: center; color: #fff; font-weight: 900; font-size: 11px; background: #e8622c; }
+.card .src { border-top: 1px solid #eee; margin-top: 8px; padding-top: 5px; color: #aaa; font-size: 11px; }
+
+.h5 { background: #fff; min-height: 520px; }
+.h5 .hd { padding: 16px 16px 12px; color: #fff; }
+.h5 .hd.agg { background: #d9551f; }
+.h5 .hd.smart { background: #23806c; }
+.h5 .hd .lg { font-weight: 900; font-size: 13px; letter-spacing: .04em; opacity: .95; }
+.h5 .hd .q { font-size: 16px; font-weight: 700; line-height: 1.45; margin-top: 8px; }
+.h5 .meta { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 16px 0; }
+.h5 .meta span { font-size: 11px; background: #f3f3f3; border-radius: 99px; padding: 1px 8px; color: #555; }
+.h5 .bd { padding: 12px 16px; display: grid; gap: 8px; }
+.h5 .ok, .h5 .diff { border-radius: 8px; padding: 8px 10px; font-size: 12.5px; }
+.h5 .ok { background: #eef7f4; }
+.h5 .diff { background: #fff1e8; border: 1px dashed #e8622c; }
+.h5 .ok b, .h5 .diff b { display: block; font-size: 11px; letter-spacing: .06em; margin-bottom: 2px; }
+.h5 .ok b { color: #23806c; }
+.h5 .diff b { color: #d9551f; }
+.h5 .task { background: #f6f7f8; border-radius: 8px; padding: 10px 12px; display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; font-size: 12.5px; }
+.h5 .task dt { color: #888; }
+.h5 .task dd { margin: 0; }
+.h5 .ex { font-size: 12.5px; color: #444; border-left: 3px solid #23806c; padding-left: 9px; }
+.h5 .cta { margin: 6px 16px 0; text-align: center; border-radius: 99px; padding: 10px; font-weight: 700; color: #fff; }
+.h5 .cta.agg { background: #e8622c; }
+.h5 .cta.smart { background: #23806c; }
+.h5 .ft { text-align: center; font-size: 11px; color: #999; padding: 8px 16px 18px; }
+.sample { display: inline-block; font-size: 11px; color: var(--warn); background: var(--warn-soft); border-radius: 4px; padding: 0 6px; margin-left: 6px; font-weight: 700; vertical-align: 2px; }
+
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 22px; }
+.box { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; min-width: 0; }
+.box h4 { margin: 0 0 8px; font-size: 15px; }
+.box ul { margin: 0; padding-left: 1.2em; font-size: 14px; }
+.box li { margin-bottom: 5px; }
+
+.timeline { display: grid; gap: 0; }
+.wk { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 18px; padding: 16px 0; border-top: 1px solid var(--line); }
+.wk:first-child { border-top: 0; }
+.wk .when b { display: block; font-size: 15px; }
+.wk .when span { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.wk ul { margin: 0; padding-left: 1.2em; }
+.wk li { margin-bottom: 4px; }
+@media (max-width: 560px) { .wk { grid-template-columns: minmax(0, 1fr); gap: 4px; } }
+
+.asks { counter-reset: ask; list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.asks li { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px 12px 50px; position: relative; }
+.asks li::before { counter-increment: ask; content: counter(ask); position: absolute; left: 16px; top: 12px; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 12px; font-weight: 700; display: grid; place-items: center; }
+.asks b { display: block; }
+.asks span { color: var(--muted); font-size: 14px; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+<style>
+:root { --task: #7a55a8; --task-soft: #efe8f7; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --task: #b195d6; --task-soft: #2a2238; } }
+:root[data-theme="dark"] { --task: #b195d6; --task-soft: #2a2238; }
+.pill.task { background: var(--task-soft); color: var(--task); }
+.h5 .hd.task { background: #6b4a93; }
+.h5 .cta.task { background: #7a55a8; }
+.h5 .pr { background: #f6f7f8; border-radius: 8px; padding: 10px 12px; font-size: 12.5px; line-height: 1.7; }
+.h5 .pr b { display: block; font-size: 11px; color: #888; letter-spacing: .06em; margin-bottom: 2px; }
+.h5 .fld { display: inline-block; border-bottom: 1.5px dashed #7a55a8; color: #6b4a93; font-weight: 700; padding: 0 2px; }
+.h5 .lbl { font-size: 11px; color: #888; margin: 2px 0 -4px; }
+.h5 .done { text-align: center; padding: 26px 16px 8px; }
+.h5 .done .ic { width: 52px; height: 52px; border-radius: 50%; background: #efe8f7; color: #6b4a93; display: grid; place-items: center; margin: 0 auto 10px; font-size: 24px; font-weight: 900; }
+.h5 .done .t { font-weight: 700; font-size: 15px; }
+.h5 .done p { margin: 4px 0 0; color: #666; font-size: 12.5px; }
+.h5 .sharebar { margin: 12px 16px 0; border: 1px dashed #c9b6e3; border-radius: 8px; padding: 9px 12px; font-size: 12px; color: #555; }
+.copy { background: var(--paper); border: 1px solid var(--line); border-left: 3px solid var(--task); border-radius: 8px; padding: 10px 14px; font-size: 14px; margin: 6px 0 0; }
+</style>
+
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <div class="eyebrow">LUCIMIX · C 端内容运营 · 2026 年 10 月汇报</div>
+  <h1>Lucimix 内容运营方案</h1>
+  <p class="lede">面向 AI 小白用户，以聚合模式和智能模式为主线，用真实产品截图做图文内容。首月 15 篇，每篇只讲一个功能，标题直接写「谁 + 遇到什么具体问题」。</p>
+  <nav class="toc" aria-label="目录">
+    <a href="#summary">一页结论</a><a href="#goals">目标</a><a href="#matrix">内容矩阵</a><a href="#channels">渠道分发</a><a href="#h5">提示词分享裂变</a><a href="#plan">执行节奏</a><a href="#asks">需要支持</a>
+  </nav>
+</header>
+
+<section id="summary">
+  <h2><span class="no">00</span>一页结论</h2>
+  <div class="summary">
+    <div><b>标题写具体问题和具体人群</b><p>不写「AI 会胡说八道」这类泛话题，而是写「做运营写月报怕数字算错」「开题怕假文献」。看标题的人能马上对号入座。</p></div>
+    <div><b>一篇只讲一个功能</b><p>不做「定时任务 + 智能模式」这类混合内容。睡前故事、面试题这类就是定时任务的案例，单独归类。</p></div>
+    <div><b>首月 15 篇，聚合 + 智能占 60%</b><p>聚合模式 5 篇、智能模式 4 篇、定时任务 3 篇、自由模式 2 篇、多端 1 篇。</p></div>
+    <div><b>用提示词分享做裂变</b><p>用户把好用的提示词分享给朋友，朋友点开就能一键同款。分享的是一个马上能用的功能，不是广告。</p></div>
+  </div>
+</section>
+
+<section id="goals">
+  <h2><span class="no">01</span>四周目标（10/20 – 11/16）</h2>
+  <p class="intro">第一个月先把 15 篇写完、发完，跑通「内容 → 访问 → 注册 → 首次使用」这条链路。数值是建议的起步值，第二周按实际数据校准。</p>
+  <div class="goals">
+    <div class="goal"><div class="k">内容产出</div><div class="v">15<small>篇图文</small></div><p>已成稿 7 篇（5 篇截图齐全，2 篇待实测补图），另外 8 篇列出选题</p></div>
+    <div class="goal"><div class="k">小红书</div><div class="v">500<small>粉丝</small></div><p>单篇平均收藏 ≥ 30；找出 2 个收藏率最高的人群加量</p></div>
+    <div class="goal"><div class="k">提示词分享</div><div class="v">300<small>次分享</small></div><p>功能上线后统计；带来注册 ≥ 150</p></div>
+    <div class="goal"><div class="k">内容带来注册</div><div class="v">500<small>人</small></div><p>按渠道参数和邀请码区分来源</p></div>
+    <div class="goal"><div class="k">新用户激活</div><div class="v">40%<small>用过聚合模式</small></div><p>新注册用户中用过聚合模式的比例；建过定时任务的比例 ≥ 20%</p></div>
+  </div>
+  <p class="note">数据口径需要研发配合：注册来源渠道参数、邀请码归因、提示词分享和同款次数、各模式使用次数。</p>
+</section>
+
+<section id="matrix">
+  <h2><span class="no">02</span>内容矩阵</h2>
+  <p class="intro">每篇只对应一个功能。标题都按「具体人群 + 具体问题」来写。已成稿的点「阅读全文」可以看完整图文。</p>
+  <div class="mix" role="img" aria-label="首月 15 篇内容比重：聚合模式 5 篇，智能模式 4 篇，定时任务 3 篇，自由模式 2 篇，多端 1 篇">
+    <div class="bar"><span class="agg">聚合模式 5</span><span class="smart">智能模式 4</span><span class="task">定时任务 3</span><span class="free">自由 2</span><span class="other">1</span></div>
+    <div class="legend"><span>聚合模式 33%</span><span>智能模式 27%</span><span>定时任务 20%</span><span>自由模式 13%</span><span>多端 7%</span></div>
+  </div>
+  <div class="tbl">
+  <table>
+    <thead><tr><th>#</th><th>功能点</th><th>标题</th><th>目标人群</th><th>首发渠道</th><th>状态</th><th>文章链接</th></tr></thead>
+    <tbody>
+      <tr class="group"><td colspan="7">聚合模式（5 篇）：工作和学习里「错了要担责」的事</td></tr>
+      <tr><td class="num">01</td><td><span class="pill agg">聚合模式</span></td><td class="title">做运营写月报，最怕数字算错：我让 3 个 AI 各算一遍，对不上的先查</td><td>电商运营、数据运营</td><td>小红书 + 知乎</td><td><span class="st warn">成稿，待实测补图</span></td><td><a class="read" href="a/01-ops-report.html">阅读全文 →</a></td></tr>
+      <tr><td class="num">02</td><td><span class="pill agg">聚合模式</span></td><td class="title">写活动方案总被领导说「角度太少」？我让 3 个 AI 各出一版思路，再合成一份</td><td>市场策划、活动运营</td><td>小红书 + 知乎</td><td><span class="st warn">成稿，待实测补图</span></td><td><a class="read" href="a/02-proposal.html">阅读全文 →</a></td></tr>
+      <tr><td class="num">03</td><td><span class="pill agg">聚合模式</span></td><td class="title">开题季别再被 AI 假文献坑了：我用 3 个 AI 一起搭论文框架</td><td>研究生、毕设学生</td><td>小红书 + 知乎</td><td><span class="st warn">建议重截</span></td><td><a class="read" href="a/02-thesis.html">阅读全文 →</a></td></tr>
+      <tr><td class="num">04</td><td><span class="pill agg">聚合模式</span></td><td class="title">原料涨了 10%，开网店的小老板要不要跟着提价？让 3 个 AI 一起算账</td><td>电商店主、小品牌老板</td><td>小红书 + 公众号</td><td><span class="st todo">数据已备，待跑</span></td><td>—</td></tr>
+      <tr><td class="num">05</td><td><span class="pill agg">聚合模式</span></td><td class="title">第一次租房签合同，让 3 个 AI 一起挑条款里的坑</td><td>毕业生、租房年轻人</td><td>小红书</td><td><span class="st todo">待实测</span></td><td>—</td></tr>
+
+      <tr class="group"><td colspan="7">智能模式（4 篇）：不懂模型的人，打开就能用</td></tr>
+      <tr><td class="num">06</td><td><span class="pill smart">智能模式</span></td><td class="title">退休的爸妈想用 AI？我只教了一句：有事就直接问</td><td>中老年、子女代教</td><td>小红书 + 朋友圈</td><td><span class="st todo">待实测</span></td><td>—</td></tr>
+      <tr><td class="num">07</td><td><span class="pill smart">智能模式</span></td><td class="title">刚入职的实习生：写周报、回邮件、整理会议纪要，一个对话框全搞定</td><td>实习生、职场新人</td><td>小红书</td><td><span class="st todo">待实测</span></td><td>—</td></tr>
+      <tr><td class="num">08</td><td><span class="pill smart">智能模式</span></td><td class="title">给导师写英文邮件总卡壳？留学生把中文意思丢给 AI 就行</td><td>留学生、研究生</td><td>小红书</td><td><span class="st todo">待实测</span></td><td>—</td></tr>
+      <tr><td class="num">09</td><td><span class="pill smart">智能模式</span></td><td class="title">开网店的宝妈：商品文案、客服回复，问一句就有</td><td>宝妈副业、小店主</td><td>小红书 + 宝妈群</td><td><span class="st todo">待实测</span></td><td>—</td></tr>
+
+      <tr class="group"><td colspan="7">定时任务（3 篇）：每天自动推送，不用自己去问</td></tr>
+      <tr><td class="num">10</td><td><span class="pill task">定时任务</span></td><td class="title">3–8 岁娃的家长：绘本讲完了，每晚 9 点自动收到一个新故事</td><td>3–8 岁孩子家长</td><td>小红书 + 宝妈群</td><td><span class="st ok">可发布</span></td><td><a class="read" href="a/05-bedtime-story.html">阅读全文 →</a></td></tr>
+      <tr><td class="num">11</td><td><span class="pill task">定时任务</span></td><td class="title">秋招产品岗：每天下午 4 点，一道面试题连答题框架推到微信</td><td>秋招学生、跳槽者</td><td>小红书 + 求职群</td><td><span class="st ok">可发布</span></td><td><a class="read" href="a/06-interview.html">阅读全文 →</a></td></tr>
+      <tr><td class="num">12</td><td><span class="pill task">定时任务</span></td><td class="title">上班族散户没空盯盘：每天 15:30，收盘复盘自动发到微信</td><td>上班族散户</td><td>小红书</td><td><span class="st ok">可发布</span></td><td><a class="read" href="a/03-market-review.html">阅读全文 →</a></td></tr>
+
+      <tr class="group"><td colspan="7">自由模式（2 篇）：知道自己要什么模型的人</td></tr>
+      <tr><td class="num">13</td><td><span class="pill free">自由模式</span></td><td class="title">做科普号的新手：一个 AI 查严谨资料，换一个 AI 写成小红书文案</td><td>自媒体新人、科普博主</td><td>小红书 + 公众号</td><td><span class="st ok">可发布</span></td><td><a class="read" href="a/07-dream-relay.html">阅读全文 →</a></td></tr>
+      <tr><td class="num">14</td><td><span class="pill free">自由模式</span></td><td class="title">独立开发者：写代码用一个模型，写中文文档换一个，上下文一直都在</td><td>独立开发者</td><td>公众号 + 即刻</td><td><span class="st todo">待实测</span></td><td>—</td></tr>
+
+      <tr class="group"><td colspan="7">多端（1 篇）</td></tr>
+      <tr><td class="num">15</td><td><span class="pill other">多端</span></td><td class="title">通勤路上想问 AI？扫码绑定微信，不用打开电脑</td><td>上班族</td><td>朋友圈 + 公众号</td><td><span class="st todo">待截图</span></td><td>—</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">调整说明：原「AI 一本正经胡说八道」改成 01 运营月报、02 策划方案两个工作场景。原「喝水提醒」也是定时任务案例，定时任务名额已满，转为备选。原「法规晨报」「行业情报」「自媒体选题」都是定时任务，下月再排。</p>
+</section>
+
+<section id="channels">
+  <h2><span class="no">03</span>渠道分发</h2>
+  <p class="intro">一篇内容做一次，按渠道改写复用。小红书负责曝光，公众号和知乎承接搜索，私域靠提示词分享转化。</p>
+  <div class="tbl">
+  <table>
+    <thead><tr><th>渠道</th><th>角色</th><th>内容形式</th><th>频率</th><th>优先发哪些</th><th>看什么数据</th></tr></thead>
+    <tbody>
+      <tr><td><b>小红书</b></td><td>主阵地，曝光和种草</td><td>图文笔记：封面大字 + 6–9 张实测截图 + 可复制提示词</td><td>每周 3–4 篇</td><td>10 睡前故事、11 面试题、01 运营月报、02 策划方案</td><td>收藏率、评论里「求提示词」的数量、主页访问</td></tr>
+      <tr><td><b>微信公众号</b></td><td>教程沉淀，挂提示词分享和注册入口</td><td>长图文，同类合集，如「打工人的 3 个聚合模式用法」</td><td>每周 1 篇</td><td>01 + 02 + 04 合集、13 科普接力</td><td>阅读完成率、文末链接点击</td></tr>
+      <tr><td><b>知乎</b></td><td>承接搜索，建立可信度</td><td>回答「用 AI 做数据分析靠谱吗」「AI 写论文编文献怎么办」等问题</td><td>每周 2 个回答</td><td>01、02、03</td><td>赞同、收藏、链接点击</td></tr>
+      <tr><td><b>视频号 / 抖音</b></td><td>第 3 周起补充</td><td>30–60 秒录屏：几个模型同时作答，或到点微信收到推送</td><td>每周 2 条</td><td>01、10、13</td><td>完播率、主页跳转</td></tr>
+      <tr><td><b>朋友圈 / 社群</b></td><td>私域转化</td><td>提示词分享卡 + 一句推荐语，按人群进宝妈群、求职群、运营群</td><td>跟随新内容</td><td>10 → 宝妈群，11 → 求职群，01 → 运营群</td><td>分享卡打开数、同款数、邀请注册数</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section id="h5">
+  <h2><span class="no">04</span>提示词分享裂变</h2>
+  <p class="intro">思路：用户把一个好用的提示词分享出去，朋友点开就能一键获得同样的功能。以睡前故事为首发案例：妈妈分享「每晚 9 点睡前故事」这段提示词，群里的其他家长点一下，自己的微信每晚也开始收到故事。</p>
+
+  <div class="phones">
+    <div class="mock">
+      <h4>① 群里看到的分享卡片</h4>
+      <p class="for">标题写「能得到什么」，不写产品名。</p>
+      <div class="phone">
+        <div class="bar-top">宝妈互助群（286）</div>
+        <div class="wx">
+          <div class="time">21:06</div>
+          <div class="row"><div class="av"></div><div class="msg">我家现在每晚 9 点自动收到一个新故事，提示词分享给大家👇</div></div>
+          <div class="row"><div class="av"></div>
+            <div class="card">
+              <div class="t">每晚 9 点，一个新的睡前故事发到你微信</div>
+              <div class="d"><span>点开一键同款，孩子年龄和主题都能改</span><span class="thumb" style="background:#7a55a8">Lucimix</span></div>
+              <div class="src">Lucimix · 提示词分享</div>
+            </div>
+          </div>
+          <div class="row"><div class="av"></div><div class="msg">求！我家天天让我编故事 😂</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mock">
+      <h4>② 打开后：提示词 + 真实示例</h4>
+      <p class="for">提示词完整公开，虚线部分可以直接改。下面附一段真实收到的故事。</p>
+      <div class="phone">
+        <div class="h5">
+          <div class="hd task"><div class="lg">LUCIMIX · 提示词分享</div><div class="q">每晚 9 点，一个新的睡前故事</div></div>
+          <div class="bd">
+            <div class="lbl">提示词（虚线处可修改）</div>
+            <div class="pr">给 <span class="fld">6</span> 岁的孩子写一个睡前故事，<span class="fld">600</span> 字左右，主题围绕 <span class="fld">勇敢 / 分享 / 好奇心</span>。语言口语化，适合大声朗读，结尾平静收束，不要说教。</div>
+            <dl class="task"><dt>时间</dt><dd><span class="fld" style="border-color:#999;color:#333">每天 21:00</span></dd><dt>推送</dt><dd>微信</dd></dl>
+            <div class="lbl">分享者家收到的故事</div>
+            <div class="ex" style="border-color:#7a55a8">《小熊咕噜的星星灯》：小熊咕噜好奇星星去了哪里，鼓起勇气走进黑夜，把饼干分给迷路的萤火虫……</div>
+          </div>
+          <div class="cta task">一键同款 · 明晚 9 点发给我</div>
+          <div class="ft">已有 128 位家长同款<span class="sample">示例数字</span> · 新用户注册得 1000 光点</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mock">
+      <h4>③ 同款成功，顺手再分享</h4>
+      <p class="for">注册后自动创建好任务，不用再去设置页。成功页再给一次分享入口，形成循环。</p>
+      <div class="phone">
+        <div class="h5">
+          <div class="hd task"><div class="lg">LUCIMIX</div><div class="q">同款已创建</div></div>
+          <div class="done">
+            <div class="ic">✓</div>
+            <div class="t">明晚 21:00，第一个故事会发到你微信</div>
+            <p>任务在「定时任务」里，随时可以改时间、改主题或者关掉。</p>
+          </div>
+          <dl class="task" style="margin:12px 16px 0"><dt>任务</dt><dd>给 5 岁孩子的睡前故事</dd><dt>时间</dt><dd>每天 21:00</dd><dt>推送</dt><dd>微信（已绑定）</dd></dl>
+          <div class="sharebar">觉得有用？分享给其他家长，对方注册后你们各得 1000 光点</div>
+          <div class="cta task" style="margin-top:12px">分享给朋友</div>
+          <div class="ft">更多家长在用的提示词：每日英语单词 · 周末遛娃去哪</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>可分享的提示词，按功能准备首批 5 个</h3>
+  <div class="tbl">
+  <table>
+    <thead><tr><th>提示词</th><th>功能</th><th>朋友能改什么</th><th>一键同款后得到什么</th><th>分享卡标题</th></tr></thead>
+    <tbody>
+      <tr><td><b>每晚睡前故事</b></td><td><span class="pill task">定时任务</span></td><td>孩子年龄、字数、主题、时间</td><td>自动创建定时任务，每晚推送到微信</td><td>每晚 9 点，一个新的睡前故事发到你微信</td></tr>
+      <tr><td><b>每日一道面试题</b></td><td><span class="pill task">定时任务</span></td><td>目标岗位、时间</td><td>自动创建定时任务，每天一题推送到微信</td><td>每天一道产品经理面试题，答题框架都给好</td></tr>
+      <tr><td><b>收盘复盘</b></td><td><span class="pill task">定时任务</span></td><td>关注的板块</td><td>自动创建定时任务，每天 15:30 推送</td><td>收盘后 5 分钟，复盘自动发到微信</td></tr>
+      <tr><td><b>运营月报数据核对</b></td><td><span class="pill agg">聚合模式</span></td><td>报表里要算的指标</td><td>打开聚合模式对话，提示词已填好，上传表格就能用</td><td>做月报前先用这个，3 个 AI 帮你核数字</td></tr>
+      <tr><td><b>活动方案多角度</b></td><td><span class="pill agg">聚合模式</span></td><td>产品、节点、预算</td><td>打开聚合模式对话，提示词已填好</td><td>写方案前跑一遍，3 个 AI 各出一个方向</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>分享时配的话（可直接用）</h3>
+  <div class="copy">宝妈群：我家现在每晚 9 点微信自动收到一个新睡前故事，不用再现编了。提示词分享给大家，点开就能同款，孩子年龄可以改。</div>
+  <div class="copy">求职群：秋招刷题总拖延的可以试试这个，每天下午 4 点微信推一道面试题，带答题框架。岗位能换，点开一键同款。</div>
+  <div class="copy">运营群：做月报怕数字算错的看这个，我用的提示词放这了，让 3 个 AI 各算一遍，对不上的地方再自己核。</div>
+
+  <div class="cols">
+    <div class="box">
+      <h4>分享入口放在哪</h4>
+      <ul>
+        <li>定时任务卡片的「…」菜单：「分享提示词」</li>
+        <li>每次推送到微信的消息末尾：「分享给朋友一起用」</li>
+        <li>聚合模式对话里，用户发出的提示词旁边：「分享这个提示词」</li>
+        <li>内容文章的文末：放分享链接，读者直接同款</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h4>奖励和隐私</h4>
+      <ul>
+        <li>沿用现有邀请奖励：分享人和新用户各得 1000 光点</li>
+        <li>只分享提示词和任务设置，不分享对话记录、上传的文件和个人信息</li>
+        <li>示例输出由分享人勾选是否附上，可以不附</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h4>需要研发评估</h4>
+      <ul>
+        <li>提示词分享页：可编辑字段（虚线部分）怎么标记</li>
+        <li>一键同款：定时任务按模板自动创建；聚合模式提示词带入新对话</li>
+        <li>新用户注册后自动完成同款，中间不丢失</li>
+        <li>微信分享卡片的标题、描述、缩略图；链接带渠道参数和邀请码</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note">建议一期只做定时任务的提示词同款（睡前故事、面试题、收盘复盘），逻辑最简单，传播也最直接；二期加聚合模式提示词。分享页里的「已有 128 位家长同款」是示意数字，上线后用真实数据。</p>
+</section>
+
+<section id="plan">
+  <h2><span class="no">05</span>执行节奏</h2>
+  <div class="timeline">
+    <div class="wk"><div class="when"><b>第 1 周</b><span>10/14 – 10/19</span></div><ul><li>方案和已成稿的 7 篇过审</li><li>实测 01 运营月报、02 策划方案，补截图</li><li>小红书、公众号账号搭建，统一封面模板</li><li>发布 10 睡前故事、11 面试题</li></ul></div>
+    <div class="wk"><div class="when"><b>第 2 周</b><span>10/20 – 10/26</span></div><ul><li>发布 01、02、12、13</li><li>实测 04 提价、05 租房合同、06–09 智能模式 4 篇</li><li>提示词分享一期需求评审</li><li>第一次数据校准，调整目标值</li></ul></div>
+    <div class="wk"><div class="when"><b>第 3 周</b><span>10/27 – 11/02</span></div><ul><li>发布 03、04、06、07；知乎回答上线</li><li>开始录屏短视频（01、10、13）</li><li>提示词分享一期上线，先进宝妈群、求职群测试</li></ul></div>
+    <div class="wk"><div class="when"><b>第 4 周</b><span>11/03 – 11/16</span></div><ul><li>发布 05、08、09、14、15，15 篇全部发完</li><li>月度复盘：哪个功能、哪类人群转化最好，决定下月比重</li><li>二期：聚合模式提示词分享排期</li></ul></div>
+  </div>
+</section>
+
+<section id="asks">
+  <h2><span class="no">06</span>需要老板和产品支持的事项</h2>
+  <ol class="asks">
+    <li><b>产品界面统一命名</b><span>界面里现在还是「暴力模式 / 聚合模型 / 自定义模型」，建议统一成「智能模式 / 聚合模式 / 自由模式」，否则截图和文案对不上。</span></li>
+    <li><b>修推送里的调试信息</b><span>推送里会露出 Cronjob Response、job_id 和「我是智能路由模型」；附件文件名是 lucimix-storage-xxx.txt。修完才能截图发布。</span></li>
+    <li><b>聚合模式实测账号和光点</b><span>聚合模式 5 篇里有 4 篇要实测，需要可用额度；最好跑出一个「分歧被标出」的画面。</span></li>
+    <li><b>提示词分享一期排期</b><span>定时任务提示词的分享页、一键同款、注册后自动创建，以及渠道参数和邀请码归因。</span></li>
+    <li><b>合规口径确认</b><span>论文类不出现「代写 / 降重」；理财类每篇带「不构成投资建议」；租房合同类注明「不替代法律意见」；文中出现第三方模型名称是否需要授权。</span></li>
+  </ol>
+</section>
+</div>
+
+</body>
+</html>

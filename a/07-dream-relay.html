@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>两个 AI 接力写科普</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Noto+Serif+SC:wght@700;900&display=swap">
+<link rel="stylesheet" href="article.css">
+</head>
+<body>
+<p class="back"><a href="../index.html#matrix">← 返回内容矩阵</a></p>
+<div class="wrap">
+<article>
+  <div class="cover free">
+    <div class="tag">自由模式 · 内容创作</div>
+    <p class="big">一个 AI 查资料<br>另一个 AI<br>写文案</p>
+    <div>
+      <p class="sub">同一个对话里换模型，上下文不断。<br>每一步交给更合适的 AI。</p>
+      <div class="brand">Lucimix</div>
+    </div>
+  </div>
+  <div class="body">
+    <h1>做科普号的新手：一个 AI 查严谨资料，换一个 AI 写成小红书文案</h1>
+
+    <p>做科普号最难的是两头都要顾：资料要严谨，不能瞎编；文案又要有网感，不然没人看。</p>
+    <p>我的办法是在 Lucimix 的「自由模式」里，<strong>让两个 AI 接力</strong>。</p>
+
+    <h2>第一棒：选一个擅长整理资料的模型</h2>
+    <p>切到自由模式，选 claude-opus-5，让它整理「为什么人会做梦」的科普资料。</p>
+    <p>它先联网搜索、抓取网页，把资料整理成一份完整的科普页面，包括神经科学机制、主流理论、常见误解。</p>
+    <figure>
+      <img src="../img/zy2.jpg" alt="claude-opus-5 联网搜索、抓取网页后，生成为什么人会做梦的科普资料文件" loading="lazy">
+      <figcaption>第一棒：联网查资料，生成一份科普文件</figcaption>
+    </figure>
+    <figure>
+      <img src="../img/zy3.jpg" alt="科普资料预览：REM 睡眠占总睡眠周期的比例、首次进入 REM 的时间、每晚做梦次数" loading="lazy">
+      <figcaption>点开文件就能预览，排版好的卡片式页面</figcaption>
+    </figure>
+
+    <h2>第二棒：换一个中文网感更好的模型</h2>
+    <p>资料有了，接下来要写成小红书文案。还是在同一个对话里，点输入框下方的模型名，切换到 deepseek-v4-pro。</p>
+    <figure>
+      <img src="../img/zy4.jpg" alt="在同一对话中打开模型列表，可以选择 claude-opus-5、claude-sonnet-5、deepseek-v4-pro、glm-5.2、kimi-k2.6 等模型" loading="lazy">
+      <figcaption>同一个对话里随时换模型</figcaption>
+    </figure>
+    <p>然后只说一句：「基于刚才的资料，帮我写成一篇小红书文章，标题要有吸引力，正文轻松一点。」</p>
+    <p>因为上下文不中断，它直接读到了第一棒整理好的资料，不用我再复制粘贴。</p>
+    <figure>
+      <img src="../img/zy5.jpg" alt="deepseek-v4-pro 基于科普资料写出的小红书文案，标题：你昨晚又做梦了？科学家说这可能是大脑在偷偷排毒加排练" loading="lazy">
+      <figcaption>第二棒：轻松好读的小红书文案</figcaption>
+    </figure>
+    <p>出来的标题是：<span class="hl">「你昨晚又做梦了？科学家说这可能是大脑在偷偷"排毒+排练"！」</span>正文里的知识点，都来自第一棒整理的资料。</p>
+
+    <h2>什么时候用自由模式？</h2>
+    <ul>
+      <li>你已经知道某个模型在某件事上更顺手</li>
+      <li>一个任务可以拆成几步，每步要求不一样，比如先严谨、再有趣</li>
+      <li>想在一个账号里用到国内外不同的模型</li>
+    </ul>
+
+    <div class="quote">一个账号，多个 AI，同一个对话里接力完成。</div>
+
+    <p class="tags">#小红书运营 #自媒体干货 #AI写作 #科普 #内容创作</p>
+  </div>
+</article>
+<aside>
+  <div class="panel">
+    <h3>发布信息</h3>
+    <dl>
+      <dt>功能点</dt><dd><span class="pill free">自由模式</span></dd>
+      <dt>人群</dt><dd>自媒体新人、科普博主、内容运营</dd>
+      <dt>首发</dt><dd>小红书图文</dd>
+      <dt>分发</dt><dd>公众号；录屏短视频</dd>
+      <dt>角度</dt><dd>讲接力协作，不做模型优劣对比</dd>
+    </dl>
+  </div>
+  <div class="panel todo">
+    <h3>发布前待办</h3>
+    <ul>
+      <li>截图里模式菜单显示「暴力模式 / 自定义模型」，界面改名后建议重截</li>
+      <li>文中提到具体模型名称，需确认对外宣传是否涉及品牌使用规范</li>
+      <li>原宣传概念图里的模型版本过时，不使用</li>
+    </ul>
+  </div>
+</aside>
+</div>
+</body>
+</html>

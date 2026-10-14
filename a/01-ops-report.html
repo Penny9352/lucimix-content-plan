@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>运营月报不算错</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Noto+Serif+SC:wght@700;900&display=swap">
+<link rel="stylesheet" href="article.css">
+</head>
+<body>
+<p class="back"><a href="../index.html#matrix">← 返回内容矩阵</a></p>
+<div class="wrap">
+<article>
+  <div class="cover agg">
+    <div class="tag">聚合模式 · 运营 / 数据分析</div>
+    <p class="big">写运营月报<br>最怕数字<br>算错</p>
+    <div>
+      <p class="sub">同一张表，3 个 AI 各算一遍。<br>数字对不上的地方，先查。</p>
+      <div class="brand">Lucimix</div>
+    </div>
+  </div>
+  <div class="body">
+    <h1>做运营写月报，最怕数字算错：我让 3 个 AI 各算一遍，对不上的先查</h1>
+
+    <p>做运营的都懂：月报里一个数字算错，老板记住的不是你的分析，而是「这个人不细心」。</p>
+    <p>用 AI 算数据确实快，但我一直不敢直接用。它算错了不会提醒你，表格和结论看起来都很像回事。</p>
+    <p>现在我的做法是：<strong>同一张表，用 Lucimix 的「聚合模式」让 3 个 AI 各算一遍。</strong>几个结果一致的数字直接用，对不上的数字我自己再核一遍。</p>
+
+    <h2>先看看我这张表有多「坑」</h2>
+    <p>这是一份卸妆油一年的销售明细：12 个月，7 个渠道和门店，有平均成交价、销量、销售额、促销折扣和退款率。看着很规整，其实有 3 个很容易算错的地方：</p>
+    <ol class="steps">
+      <li><span class="n">1</span><span><strong>金额是文字，不是数字</strong>：销售额写的是「¥209.3万」这种格式，直接求和可能出错，也可能被漏掉。</span></li>
+      <li><span class="n">2</span><span><strong>每个月的渠道不一样多</strong>：9 月有 4 条记录，后面很多月只有 2 条。直接拿月合计做环比，会得出「销售额下滑」的错误结论。</span></li>
+      <li><span class="n">3</span><span><strong>退款率不能直接平均</strong>：大渠道和小门店的销售额差了十几倍，要按销售额加权才准。</span></li>
+    </ol>
+    <p>这种坑，人工做也容易踩。单个 AI 踩了，你很难发现。</p>
+
+    <h2>怎么做：上传表格，切到聚合模式</h2>
+    <p>在个人助手里上传 Excel，输入框下方切到「聚合模式」，然后发这段话：</p>
+    <div class="prompt"><b>可复制提示词</b>我上传了一份销售明细表，请帮我写一份运营月报的数据部分：
+1. 全年总销售额，线上和线下各占多少；
+2. 各渠道销售额排名；
+3. 各渠道按销售额加权的退款率；
+4. 销售趋势判断。注意每个月统计的渠道数量不同，不要直接用月合计做环比。
+所有数字请写出计算方法。拿不准的地方直接说明。</div>
+    <div class="pending">配图待补：上传表格并切到聚合模式的截图</div>
+
+    <h2>3 个 AI 的结果怎么用</h2>
+    <p>聚合模式会让几个模型分别独立计算，再做交叉验证：</p>
+    <ul>
+      <li><strong>几个模型算出来一样的数字</strong>：放心写进月报。</li>
+      <li><strong>算出来不一样、被单独标出的数字</strong>：回到表里自己核一遍。通常就是上面那 3 个坑。</li>
+    </ul>
+    <div class="pending">配图待补：聚合模式输出的数据汇总，以及被标出的不一致项<br>（实测后用真实截图替换，不使用示意图）</div>
+    <p>这样我不用把每个数字都重新算一遍，只要核对被标出来的那几个。</p>
+
+    <h2>几个让数字更准的小习惯</h2>
+    <ul>
+      <li><strong>让它写出计算方法</strong>：错在哪一步，一眼就能看出来。</li>
+      <li><strong>把表里的坑提前告诉它</strong>：比如「每月渠道数不同」，这一句能少很多错。</li>
+      <li><strong>月报里的核心数字，自己再抽查 1–2 个</strong>：AI 帮你缩小检查范围，最后签字的是你。</li>
+    </ul>
+
+    <div class="quote">3 个 AI 算出同一个数，我才敢写进月报。算得不一样的，我先查。</div>
+
+    <p class="tags">#运营 #数据分析 #月报 #职场干货 #Excel #AI工具</p>
+  </div>
+</article>
+<aside>
+  <div class="panel">
+    <h3>发布信息</h3>
+    <dl>
+      <dt>功能点</dt><dd><span class="pill agg">聚合模式</span></dd>
+      <dt>人群</dt><dd>电商运营、数据运营、需要交月报周报的职场人</dd>
+      <dt>首发</dt><dd>小红书图文</dd>
+      <dt>分发</dt><dd>知乎「用 AI 做数据分析靠谱吗」；运营社群</dd>
+      <dt>素材</dt><dd>案例与截图/暴力模式case/卸妆油销售明细.xlsx</dd>
+    </dl>
+  </div>
+  <div class="panel todo">
+    <h3>发布前待办</h3>
+    <ul>
+      <li>用这份表在聚合模式实测一次，补 2 张截图</li>
+      <li>核对 AI 结果用的参考答案（我用脚本算的）：全年销售额 4002.4 万；线上 3232.5 万（80.8%），线下 769.9 万（19.2%）；天猫 1790.9 万排第一，抖音 896.3 万第二；按销售额加权的退款率，抖音最高，约 5.1%</li>
+      <li>如果实测中没有出现不一致项，正文第三部分按实际结果改写，不硬写「标出了分歧」</li>
+    </ul>
+  </div>
+</aside>
+</div>
+</body>
+</html>

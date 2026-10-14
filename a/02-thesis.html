@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>开题不怕假文献</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Noto+Serif+SC:wght@700;900&display=swap">
+<link rel="stylesheet" href="article.css">
+</head>
+<body>
+<p class="back"><a href="../index.html#matrix">← 返回内容矩阵</a></p>
+<div class="wrap">
+<article>
+  <div class="cover agg">
+    <div class="tag">聚合模式 · 开题季</div>
+    <p class="big">开题季<br>别再被 AI<br>假文献坑了</p>
+    <div>
+      <p class="sub">我的论文搭框架流程：<br>3 个 AI 背靠背作答，分歧处先核查。</p>
+      <div class="brand">Lucimix</div>
+    </div>
+  </div>
+  <div class="body">
+    <h1>开题季别再被 AI 假文献坑了：我用 3 个 AI 一起搭论文框架</h1>
+
+    <p>开题前用 AI 找方向的同学，大概都踩过这个坑：AI 列了一串参考文献，作者、期刊、年份一应俱全，去知网一搜，查无此文。</p>
+    <p>最难受的是，这些假引用看起来完全合理，你很难一眼分辨。</p>
+
+    <h2>第一步：先给 AI 定好角色</h2>
+    <p>选「聚合模式」，先把要求说清楚。下面这段可以直接复制，学科换成你自己的：</p>
+    <div class="prompt"><b>可复制提示词</b>你现在是一位严谨的学术论文写作导师，具有以下特征：
+- 学科背景：管理学/经济学，熟悉实证研究范式
+- 写作风格：学术规范、逻辑严密、用词精准，避免口语化表达
+- 输出要求：给出结构化内容，关键论断需标注可引用的理论或文献来源方向
+- 语言：中文，专业术语可附英文原文
+- 格式：使用 Markdown 排版，层次清晰</div>
+    <figure>
+      <img src="../img/lw1.jpg" alt="在 Lucimix 个人助手中输入导师角色设定，下方已切换为聚合模式" loading="lazy">
+      <figcaption>在个人助手里输入角色设定，切换到聚合模式</figcaption>
+    </figure>
+
+    <h2>第二步：给出题目，看几个 AI 怎么答</h2>
+    <p>接着告诉它你的选题，比如「数字经济背景下中小企业数字化转型对企业绩效的影响」，让它先从开题和文献综述的思路开始。</p>
+    <p>这时后台会同时让几个模型各自作答，再交给一个模型做交叉验证和汇总：</p>
+    <figure>
+      <img src="../img/lw2.jpg" alt="聚合模式运行过程：三个模型并行作答，claude-opus-5 聚合总结" loading="lazy">
+      <figcaption>并行作答 → 聚合总结 → 开始输出</figcaption>
+    </figure>
+    <figure>
+      <img src="../img/lw3.jpg" alt="聚合模式输出的论文框架：阶段1 开题与文献综述，研究背景与问题提出" loading="lazy">
+      <figcaption>汇总后的输出：研究背景、问题提出，层次很清楚</figcaption>
+    </figure>
+
+    <h2>为什么比只问一个 AI 靠谱？</h2>
+    <p>一个模型编造引用是随机的。几个模型独立作答，编出同一条假引用的可能性很低。</p>
+    <p>几份答案说法不一致的地方会被单独标出来，<span class="hl">这些就是你最该先去核查的地方。</span></p>
+
+    <h2>正确的打开方式</h2>
+    <ul>
+      <li><strong>AI 给的是框架和方向</strong>：研究背景怎么铺、理论从哪找、变量怎么设计，帮你少走弯路。</li>
+      <li><strong>文献一定要自己核对原文</strong>：拿着它给的方向去知网、Google Scholar 找到原文再引用。</li>
+    </ul>
+
+    <div class="quote">论文是你自己的。AI 帮你把方向理清楚，把可疑的地方标出来，判断和写作还是要你来。</div>
+
+    <p class="tags">#开题报告 #论文写作 #研究生日常 #毕业论文 #AI学习工具</p>
+  </div>
+</article>
+<aside>
+  <div class="panel">
+    <h3>发布信息</h3>
+    <dl>
+      <dt>功能点</dt><dd><span class="pill agg">聚合模式</span></dd>
+      <dt>人群</dt><dd>研一新生、准备开题的研究生、本科毕设</dd>
+      <dt>首发</dt><dd>小红书图文</dd>
+      <dt>分发</dt><dd>知乎「AI 写论文编文献怎么办」；考研/研究生社群</dd>
+      <dt>窗口</dt><dd>开题季，10–11 月；3–4 月毕业季可再推</dd>
+    </dl>
+  </div>
+  <div class="panel todo">
+    <h3>发布前待办</h3>
+    <ul>
+      <li>合规：全文只讲「搭框架、核查文献」，不出现「代写」「降重」「一键生成论文」</li>
+      <li>原截图的提示词里有「分 6 个阶段输出完整论文内容」，建议重截一版只做开题和文献综述的</li>
+      <li>建议补一张分歧被标出的截图</li>
+    </ul>
+  </div>
+</aside>
+</div>
+</body>
+</html>
